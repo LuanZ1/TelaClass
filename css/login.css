@@ -1,0 +1,30 @@
+.form-control::-moz-placeholder {
+  color: #848383;
+}
+.form-control:-ms-input-placeholder {
+  color: #848383;
+}
+.form-control::-webkit-input-placeholder {
+  color: #848383;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: rgb(36, 51, 63);
+    border-color: rgb(36, 51, 63);
+}
+
+.btn-primary:hover {
+    color: rgb(36, 51, 63);
+    background-color: rgba(36, 51, 63, 0.05);
+    border-color: rgb(36, 51, 63);
+}
+
+.login-wrap {
+    padding: 20px;
+}
+
+.login-form .checkbox {
+	color: rgb(57, 74, 89);
+}
+
