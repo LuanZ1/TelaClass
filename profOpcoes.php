@@ -51,7 +51,7 @@
                   
 				  <li>
                       <a class="" href="admOpcoes.php">
-                          <span>Usuários</span>
+                          <span>Admistradores</span>
                       </a>
                   </li>
 

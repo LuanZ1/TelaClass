@@ -14,7 +14,6 @@
         Author URL: https://bootstrapmade.com
     ======================================================= -->
   </head>
-
   
   <body>
   <!-- container section start -->
