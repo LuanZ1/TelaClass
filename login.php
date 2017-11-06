@@ -31,11 +31,11 @@
             <p class="login-img"><i class="icon_lock_alt"></i>TelaClass</p>
             <div class="input-group"> 
               <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="Login" autofocus>
+              <input type="text" class="form-control" placeholder="Login" autofocus name="login">
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Senha">
+                <input type="password" class="form-control" placeholder="Senha" name="senha">
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Lembrar-me
@@ -43,10 +43,36 @@
             </label>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Entrar</button>
         </div>
+       
       </form>
  
     </div>
-
+    
 
   </body>
 </html>
+<?php 
+$servidor = "localhost";
+$usuario = "root";
+$senha = "1q2w3e";
+$banco = "telaclass";
+// Linha para conexão ao Banco
+$conector = new mysqli($servidor, $usuario, $senha, $banco);
+// Verificando a conexão com o banco
+if (mysqli_connect_errno())
+    trigger_error(mysqli_connect_errno());
+    
+    $sql = "SELECT * FROM usuarios";
+    $consulta = $conector->query($sql);
+    while ($dados = $consulta->fetch_array()) {
+        
+        echo "Nome Cliente: " . $dados["login"] . "<br>";
+    }
+    echo "Registros encontrados: " . $consulta->num_rows;
+
+
+$login = $_GET["login"];
+$senha = $_GET["senha"];
+
+
+?>
