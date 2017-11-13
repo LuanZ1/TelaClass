@@ -24,7 +24,7 @@
       <header class="header dark-bg">
             
             <!--logo start-->
-            <a href="index.html" class="logo">TelaClass <span class="lite">Universidade de Itaúna</span></a>
+            <a href="index.php" class="logo">TelaClass <span class="lite">Universidade de Itaúna</span></a>
             <!--logo end-->
 
             
@@ -34,7 +34,7 @@
 
                     <li> <a href="#"> <span class="username">Alterar dados cadastrais</span>  </a>	</li>
                     <li> <a href="#"> <span class="username">Ajuda</span>  </a>	</li>
-                    <li> <a href="#"> <span class="username">Sair</span>  </a>	</li>
+                    <li> <a href="login.php"> <span class="username">Sair</span>  </a>	</li>
 					
 
                 </ul>

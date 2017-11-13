@@ -1,3 +1,11 @@
+<?php 
+session_start();
+$logado = $_SESSION['login'];
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +31,7 @@
       <header class="header dark-bg">
             
             <!--logo start-->
-            <a href="index.html" class="logo">TelaClass <span class="lite">Universidade de Itaúna</span></a>
+            <a href="index.php" class="logo">TelaClass <span class="lite">Universidade de Itaúna</span></a>
             <!--logo end-->
 
             
@@ -33,7 +41,7 @@
 
                     <li> <a href="#"> <span class="username">Alterar dados cadastrais</span>  </a>	</li>
                     <li> <a href="#"> <span class="username">Ajuda</span>  </a>	</li>
-                    <li> <a href="#"> <span class="username">Sair</span>  </a>	</li>
+                    <li> <a href="login.php"> <span class="username">Sair</span>  </a>	</li>
 					
 
                 </ul>
@@ -81,7 +89,7 @@
 			  <div class="row">
 				<div class="col-lg-12">
 					
-					<h1> Bem-vindo, nomeDoUsuário! </h1>
+					<h1> Bem-vindo, <?php echo"$logado"; ?> </h1>
 					<h4> Usufrua do sistema navegando pelas opções ao lado. </h4>
 					
 				</div>
@@ -97,3 +105,4 @@
     
   </body>
 </html>
+

@@ -1,5 +1,58 @@
+<?php 
+include 'ConexaoBanco.php';
+session_start();
+
+if (isset($_POST["login"])) {
+    $email = $_POST["login"];
+    $senha = $_POST["senha"];
+    $_SESSION['login'] = $email;
+    $_SESSION['senha'] = $senha;
+    
+    $login = false;
+    if ($email == "" || $senha == "") {
+        echo "<script>alert('Preencher todo os campos de login')</script>";
+    }
+    else {
+        function verificaEmaillSenha($email, $senha, $Conexao) {
+            
+            $consulta = "SELECT * FROM usuarios WHERE login = '$email' and senha = '$senha'";
+            $resultado = mysqli_fetch_assoc(mysqli_query($Conexao, $consulta));
+            
+            //echo $resultado["nome_usuario"];
+            if ($resultado["login"] == $email && $resultado["senha"] == $senha) {
+                return true;
+            } else {
+                
+                return false;
+            }
+        }
+        
+        
+        $sql = "SELECT * FROM usuarios";
+        $consulta = $conector->query($sql);
+        $login = verificaEmaillSenha($email, $senha, $conector);
+        
+        if ($login == false) {
+            echo "<script>alert('Login ou senha incorretos');</script>";
+            
+        } else if ($login == true) {
+            echo "<script>alert('login com sucesso');</script>";
+            //echo "<a href='index.php'></a>";
+            
+            header("Location: index.php");
+            
+            
+            
+            
+            
+            
+        }
+    }
+}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
 
@@ -26,12 +79,12 @@
 
     <div class="container">
 
-      <form class="login-form" action="index.html">        
+      <form class="login-form" action="login.php" method="post">        
         <div class="login-wrap">
             <p class="login-img"><i class="icon_lock_alt"></i>TelaClass</p>
             <div class="input-group"> 
               <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="Login" autofocus name="login">
+              <input type="text" class="form-control" placeholder="Login" autofocus name="login" >
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
@@ -51,28 +104,5 @@
 
   </body>
 </html>
-<?php 
-$servidor = "localhost";
-$usuario = "root";
-$senha = "1q2w3e";
-$banco = "telaclass";
-// Linha para conexão ao Banco
-$conector = new mysqli($servidor, $usuario, $senha, $banco);
-// Verificando a conexão com o banco
-if (mysqli_connect_errno())
-    trigger_error(mysqli_connect_errno());
-    
-    $sql = "SELECT * FROM usuarios";
-    $consulta = $conector->query($sql);
-    while ($dados = $consulta->fetch_array()) {
-        
-        echo "Nome Cliente: " . $dados["login"] . "<br>";
-    }
-    echo "Registros encontrados: " . $consulta->num_rows;
 
 
-$login = $_GET["login"];
-$senha = $_GET["senha"];
-
-
-?>
